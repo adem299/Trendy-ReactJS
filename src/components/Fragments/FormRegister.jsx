@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "../Elements/Button";
 import InputForm from "../Elements/Input";
-import { registerUser } from "../../services/product.service";
+import { registerUser } from "../../services/users.service.js";
 
 
 const FormRegister = () => {

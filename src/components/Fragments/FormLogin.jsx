@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "../Elements/Button";
 import InputForm from "../Elements/Input";
-import { loginUser } from "../../services/product.service";
+import { loginUser } from "../../services/users.service.js";
 
 const FormLogin = () => {
   const [username, setUsername] = useState(localStorage.getItem("username") || "");
