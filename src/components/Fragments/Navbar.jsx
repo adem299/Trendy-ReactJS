@@ -21,13 +21,24 @@ const Navbar = (props) => {
     };
   }, []);
 
+  const handleLogout = () => {
+    const confirmLogout = window.confirm("Are you sure you want to log out?");
+  if (confirmLogout) {
+    setIsOpen(false);
+    localStorage.removeItem("username");
+    localStorage.removeItem("token");
+    window.location.href = "/login";
+  }
+  };
+
   return (
     <nav className="flex justify-between items-center fixed top-0 left-0 right-0 bg-white p-4 shadow-md">
       <h1 className="text-xl font-bold px-5">Trendy</h1>
-      <div className="flex gap-4">
-        <Button className="px-2 bg-gray-50 hover:bg-gray-100">Products</Button>
-        <Button className="px-2 bg-gray-50 hover:bg-gray-100">About</Button>
-        <Button className="px-2 bg-gray-50 hover:bg-gray-100">Contact</Button>
+      <div className="flex gap-8">
+        <a className="p-1 border-b-2 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">Products</a>
+        <a className="p-1 border-b-2 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">About</a>
+        <a className="p-1 border-b-2 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">Contact</a>
+
       </div>
       <div className="flex gap-4 relative">
         {/* <a className="bg-gray-50 p-1 rounded-full hover:bg-gray-300 px-2">
@@ -59,10 +70,10 @@ const Navbar = (props) => {
               <Menu className="w-5 h-5 mr-2" /> Manage Account
             </a>
             <a
-              href="#"
               className="flex items-center w-full px-4 py-2 text-gray-700 hover:bg-gray-100 hover:rounded-lg"
+              onClick={handleLogout}
             >
-              <LogOut className="w-5 h-5 mr-2" /> Logout
+              <LogOut className="w-5 h-5 mr-2"/> Logout
             </a>
           </div>
         )}

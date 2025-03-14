@@ -61,7 +61,7 @@ const FormLogin = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       {error && <p className="text-red-500">{error}</p>}
-      <Button className="bg-blue-600 w-full" type="submit" disabled={loading}>
+      <Button className="bg-blue-600 w-full text-white" type="submit" disabled={loading}>
         {loading ? "Logging in..." : "Login"}
       </Button>
     </form>
