@@ -8,4 +8,14 @@ const CardContent = ({ children }) => {
     return <div className="p-4">{children}</div>;
 }
 
-export { Card, CardContent };
+const ProductCard = ({ product }) => {
+    return (
+      <div className="border p-4 rounded-lg shadow-md">
+        <h3 className="font-semibold">{product.name}</h3>
+        <p className="text-gray-600">{product.price}</p>
+        <p>Rating: {product.rating}</p>
+      </div>
+    );
+  };
+
+export { Card, CardContent, ProductCard };

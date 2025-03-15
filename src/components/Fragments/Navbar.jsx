@@ -1,6 +1,7 @@
 import Button from "../Elements/Button";
 import { ShoppingCart, Search, User, Menu, LogOut } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import SearchBar from "./SearchBar";
 
 const Navbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,20 +36,21 @@ const Navbar = (props) => {
     <nav className="flex justify-between items-center fixed top-0 left-0 right-0 bg-white p-4 shadow-md">
       <h1 className="text-xl font-bold px-5">Trendy</h1>
       <div className="flex gap-8">
-        <a className="p-1 border-b-2 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">Products</a>
-        <a className="p-1 border-b-2 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">About</a>
-        <a className="p-1 border-b-2 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">Contact</a>
+        <a className="border-b-2 text-gray-700 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">Products</a>
+        <a className="border-b-2 text-gray-700 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">About</a>
+        <a className="border-b-2 text-gray-700 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">Contact</a>
 
       </div>
       <div className="flex gap-4 relative">
         {/* <a className="bg-gray-50 p-1 rounded-full hover:bg-gray-300 px-2">
           <Search className="w-6 h-6 text-gray-700" />
         </a> */}
-        <a className="bg-gray-50 p-1 rounded-full hover:bg-gray-300 px-2">
+        < SearchBar />
+        <a className="p-1 rounded-full hover:bg-gray-300 px-2">
           <ShoppingCart className="w-6 h-6 text-gray-700" />
         </a>
         <a
-          className="bg-gray-50 p-1 rounded-full hover:bg-gray-300 px-2 cursor-pointer"
+          className="p-1 rounded-full hover:bg-gray-300 px-2 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           <User className="w-6 h-6 text-gray-700" />

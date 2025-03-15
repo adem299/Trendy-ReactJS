@@ -1,82 +1,51 @@
-import { useEffect, useRef, useState } from "react";
-import CardProduct from "../components/Fragments/CardProduct";
-import { getProducts } from "../services/product.service";
+import { ProductCard } from "../components/Elements/Card/Card";
 import { Navbar } from "../components/Fragments/Navbar";
-import HeroSection from "../components/Fragments/HeroSection";
+import { Pagination } from "../components/Fragments/Pagination";
+import { Sidebar } from "../components/Fragments/SideBar";
 
 const username = localStorage.getItem("username");
 
-const ProductPage = () => {
-  const [cart, setCart] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [products, setProducts] = useState([]);
-  const totalPriceRef = useRef(null);
+// const ProductsPage = () => {
+//     return (
+//         <Navbar username={username}/>
+//     );
+// }
 
-  useEffect(() => {
-    setCart(JSON.parse(localStorage.getItem("cart")) || []);
-  }, []);
+// export default ProductsPage;
 
-  useEffect(() => {
-    getProducts((data) => {
-      setProducts(data);
-    });
-  }, []);
 
-  useEffect(() => {
-    if (products.length > 0 && cart.length > 0) {
-      const sum = cart.reduce((acc, item) => {
-        const product = products.find((product) => product.id === item.id);
-        return acc + (product ? product.price * item.quantity : 0);
-      }, 0);
-      setTotalPrice(sum);
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-  }, [cart, products]);
 
-  const handleAddToCart = (id) => {
-    if (cart.find((item) => item.id === id)) {
-      setCart(cart.map((item) => (item.id === id ? { ...item, quantity: item.quantity + 1 } : item)));
-    } else {
-      setCart([...cart, { id, quantity: 1 }]);
-    }
-  };
-
-  useEffect(() => {
-    if (totalPriceRef.current) {
-      totalPriceRef.current.style.display = cart.length > 0 ? "table-row" : "none";
-    }
-  }, [cart]);
-
+const ProductsPage = () => {
   return (
     <>
-      <Navbar username={username} />
-      <HeroSection />
-      <div className="flex-col justify-center py-5 h-screen pt-24">
-        <h1 className="text-4xl font-bold text-center pb-10">Weekly Collections</h1>
-        <div className="flex flex-wrap gap-4 max-w-screen-lg mx-auto justify-center">
-          {products.length > 0 && products.slice(0, 6).map((product) => (
-            <CardProduct key={product.id}>
-              <CardProduct.Header image={product.image} />
-              <CardProduct.Body title={product.title}>
-                {product.description}
-              </CardProduct.Body>
-              <CardProduct.Footer
-                id={product.id}
-                price={product.price}
-                handleAddToCart={handleAddToCart}
-              />
-            </CardProduct>
-          ))}
-          <div className="w-full flex justify-center mt-2 mb-10">
-            <button className="text-black font-semibold border border-gray-800 px-10 py-2 rounded-3xl cursor-pointer hover:bg-gray-800 hover:text-white">
-              View More
-            </button>
-          </div>
-        </div>
+    <Navbar username={username}/>
+    <div className="flex mt-24">
+      <Sidebar />
+      <div className="flex-1 p-5">
+        <h2 className="text-2xl font-bold mb-4">Casual</h2>
+        <ProductList />
+        <Pagination />
       </div>
-
+    </div>
     </>
   );
 };
 
-export default ProductPage;
+const products = [
+  { id: 1, name: "Gradient Graphic T-shirt", price: "$145", rating: 3.5 },
+  { id: 2, name: "Polo with Tipping Details", price: "$180", rating: 4.5 },
+  { id: 3, name: "Black Striped T-shirt", price: "$120", rating: 5.0 },
+];
+
+const ProductList = () => {
+  return (
+    <div className="grid grid-cols-3 gap-4">
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </div>
+  );
+};
+
+
+export default ProductsPage;
