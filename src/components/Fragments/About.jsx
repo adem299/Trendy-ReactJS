@@ -9,8 +9,8 @@ const services = [
   },
   {
     icon: <ShieldCheck size={40} />, 
-    title: "10-year warranty", 
-    description: "If it breaks in the first 10 years we'll replace it. After that you're on your own though."
+    title: "7-days warranty", 
+    description: "If it breaks in the first 7 days we'll replace it. After that you're on your own though."
   },
   {
     icon: <Shirt size={40} />, 

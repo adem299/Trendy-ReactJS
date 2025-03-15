@@ -1,6 +1,6 @@
 export const Sidebar = () => {
     return (
-      <div className="w-1/4 p-4 border-r">
+      <div className="w-1/4 ml-2 p-4 border rounded-lg">
         <h3 className="text-xl font-bold mb-4">Filters</h3>
         <div>
           <h4 className="font-semibold">Categories</h4>

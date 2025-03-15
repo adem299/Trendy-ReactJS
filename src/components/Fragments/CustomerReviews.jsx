@@ -6,13 +6,13 @@ const reviews = [
   { id: 1, name: "Sarah M.", review: "Great service and quality products!" },
   { id: 2, name: "Alex K.", review: "Love the variety of styles available." },
   { id: 3, name: "James L.", review: "Super fast delivery and great customer service!" },
-  { id: 4, name: "James L.", review: "Super fast delivery and great customer service!" },
-  { id: 5, name: "James L.", review: "Super fast delivery and great customer service!" },
-  { id: 6, name: "James L.", review: "Super fast delivery and great customer service!" },
-  { id: 7, name: "James L.", review: "Super fast delivery and great customer service!" },
-  { id: 8, name: "James L.", review: "Super fast delivery and great customer service!" },
-  { id: 9, name: "James L.", review: "Super fast delivery and great customer service!" },
-  { id: 10, name: "James L.", review: "Super fast delivery and great customer service!" },
+  { id: 4, name: "Anggun A.", review: "Super fast delivery, good!" },
+  { id: 5, name: "Orange Cat", review: "meow meow meow meaw meow meoww..~" },
+  { id: 6, name: "Aoba Moca.", review: "yamabuki bakery~~ it`s good thanks!" },
+  { id: 7, name: "Hagumi", review: "hagumi say thank you" },
+  { id: 8, name: "Kokoro", review: "HAPPY LUCKY SMILE YEAYY~~ 😊" },
+  { id: 9, name: "Ako Odogawa", review: "ako great full" },
+  { id: 10, name: "Michelle", review: "thankyouuu~🐼🔥" },
 ];
 
 const CustomerReviews = () => {

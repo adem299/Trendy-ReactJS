@@ -33,7 +33,7 @@ const FormLogin = () => {
   
         console.log("Token saved:", localStorage.getItem("token"));
   
-          window.location.replace("/products");
+          window.location.replace("/home");
       } else {
         setError("Invalid username or password");
       }

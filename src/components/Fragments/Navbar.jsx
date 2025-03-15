@@ -34,9 +34,9 @@ const Navbar = (props) => {
 
   return (
     <nav className="flex justify-between items-center fixed top-0 left-0 right-0 bg-white p-4 shadow-md">
-      <h1 className="text-xl font-bold px-5">Trendy</h1>
+      <a href="/home"><h1 className="text-xl font-bold px-5">Trendy</h1></a>
       <div className="flex gap-8">
-        <a className="border-b-2 text-gray-700 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">Products</a>
+        <a className="border-b-2 text-gray-700 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer" href="/products">Products</a>
         <a className="border-b-2 text-gray-700 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">About</a>
         <a className="border-b-2 text-gray-700 border-transparent hover:border-b-2 hover:border-gray-700 transition cursor-pointer">Contact</a>
 
@@ -46,11 +46,11 @@ const Navbar = (props) => {
           <Search className="w-6 h-6 text-gray-700" />
         </a> */}
         < SearchBar />
-        <a className="p-1 rounded-full hover:bg-gray-300 px-2">
+        <a className="p-1 rounded-full px-2 cursor-pointer">
           <ShoppingCart className="w-6 h-6 text-gray-700" />
         </a>
         <a
-          className="p-1 rounded-full hover:bg-gray-300 px-2 cursor-pointer"
+          className="p-1 rounded-full  px-2 cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
           <User className="w-6 h-6 text-gray-700" />
